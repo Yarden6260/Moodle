@@ -59,6 +59,7 @@ check_fileServerType_param $fileServerType
   if [ $fileServerType = "gluster" ]; then
     #configure gluster repository & install gluster client
     sudo add-apt-repository ppa:gluster/glusterfs-3.10 -y
+    sudo apt-get -y install software-properties-common
     sudo add-apt-repository ppa:ondrej/php -y
     sudo apt-get -y update && apt -y upgrade
     sudo apt-get -y install glusterfs-client
