@@ -52,15 +52,14 @@ check_fileServerType_param $fileServerType
   sudo apt-get -y install unattended-upgrades
 
   # install pre-requisites
-  sudo apt-get -y install python-software-properties unzip rsyslog software-properties-common
-  
-  sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
+  sudo apt-get -y install python-software-properties unzip rsyslog
 
   sudo apt-get -y install postgresql-client mysql-client git
 
   if [ $fileServerType = "gluster" ]; then
     #configure gluster repository & install gluster client
     sudo add-apt-repository ppa:gluster/glusterfs-3.10 -y
+    sudo add-apt-repository ppa:ondrej/php -y
     sudo apt-get -y update
     sudo apt-get -y install glusterfs-client
   elif [ "$fileServerType" = "azurefiles" ]; then
