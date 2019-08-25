@@ -70,7 +70,8 @@ check_fileServerType_param $fileServerType
   # install the base stack
   sudo apt-get -y install software-properties-common
   sudo add-apt-repository ppa:ondrej/php -y
-  sudo apt-get -y update && apt -y upgrade
+  sudo apt-get -y update
+  sudo apt-get -y upgrade
   sudo apt-get -y install varnish php7.3 php7.3-cli php7.3-curl php7.3-zip php7.3-mbstring php7.3-dev mcrypt
 
   if [ "$webServerType" = "nginx" -o "$httpsTermination" = "VMSS" ]; then
