@@ -52,7 +52,6 @@ check_fileServerType_param $fileServerType
   sudo apt-get -y install unattended-upgrades
 
   # install pre-requisites
-  sudo apt-get -y install software-properties-common
   sudo apt-get -y install python-software-properties unzip rsyslog
 
   sudo apt-get -y install postgresql-client mysql-client git
@@ -65,30 +64,24 @@ check_fileServerType_param $fileServerType
   elif [ "$fileServerType" = "azurefiles" ]; then
     sudo apt-get -y install cifs-utils
   fi
-  
-  # install the base stack
-  sudo add-apt-repository ppa:ondrej/php -y
-  sudo apt-get -y update
-  sudo apt-get -y install varnish php7.1 php7.1-cli php7.1-curl php7.1-zip php7.1-mbstring php7.1-dev php7.1-mcrypt
 
-  echo "Step 0"
+  # install the base stack
+  sudo apt-get -y install varnish php php-cli php-curl php-zip php-pear php-mbstring php-dev mcrypt
+
   if [ "$webServerType" = "nginx" -o "$httpsTermination" = "VMSS" ]; then
     sudo apt-get -y install nginx
-    echo "Step 0.5"
   fi
-  echo "Step 1"
 
   if [ "$webServerType" = "apache" ]; then
     # install apache pacakges
-    sudo apt-get -y install apache2 libapache2-mod-php7.1
+    sudo apt-get -y install apache2 libapache2-mod-php
   else
     # for nginx-only option
-    sudo apt-get -y install php7.1-fpm
+    sudo apt-get -y install php-fpm
   fi
-  echo "Step 2"
 
   # Moodle requirements
-  sudo apt-get install -y graphviz aspell php7.1-soap php7.1-json php7.1-redis php7.1-bcmath php7.1-gd php7.1-pgsql php7.1-mysql php7.1-xmlrpc php7.1-intl php7.1-xml php7.1-bz2
+  sudo apt-get install -y graphviz aspell php-soap php-json php-redis php-bcmath php-gd php-pgsql php-mysql php-xmlrpc php-intl php-xml php-bz2
   if [ "$dbServerType" = "mssql" ]; then
     install_php_mssql_driver
   fi
