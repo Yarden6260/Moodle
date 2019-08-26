@@ -72,9 +72,9 @@ check_fileServerType_param $fileServerType
   sudo apt-get -y install varnish php7.1 php7.1-cli php7.1-curl php7.1-zip php7.1-mbstring php7.1-dev php7.1-mcrypt
 
   echo "Step 0"
-  # if [ "$webServerType" = "nginx" -o "$httpsTermination" = "VMSS" ]; then
-  # sudo apt-get -y install nginx
-  # fi
+  if [ "$webServerType" = "nginx" -o "$httpsTermination" = "VMSS" ]; then
+    sudo apt-get -y install nginx
+  fi
   echo "Step 1"
 
   if [ "$webServerType" = "apache" ]; then
