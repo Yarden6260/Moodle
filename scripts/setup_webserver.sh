@@ -80,7 +80,7 @@ check_fileServerType_param $fileServerType
     sudo apt-get -y install apache2 libapache2-mod-php
   else
     # for nginx-only option
-    sudo apt-get -y install php7.3-fpm
+    sudo apt-get -y install php-fpm7.3
   fi
 
   # Moodle requirements
