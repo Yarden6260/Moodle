@@ -77,7 +77,7 @@ check_fileServerType_param $fileServerType
 
   if [ "$webServerType" = "apache" ]; then
     # install apache pacakges
-    sudo apt-get -y install apache2 libapache2-mod-php
+    sudo apt-get -y install apache2 libapache2-mod-php7.1
   else
     # for nginx-only option
     sudo apt-get -y install php7.1-fpm
