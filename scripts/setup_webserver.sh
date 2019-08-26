@@ -71,9 +71,11 @@ check_fileServerType_param $fileServerType
   sudo apt-get -y update
   sudo apt-get -y install varnish php7.1 php7.1-cli php7.1-curl php7.1-zip php7.1-mbstring php7.1-dev php7.1-mcrypt
 
+  echo "Step 0"
   # if [ "$webServerType" = "nginx" -o "$httpsTermination" = "VMSS" ]; then
-    # sudo apt-get -y install nginx
+  # sudo apt-get -y install nginx
   # fi
+  echo "Step 1"
 
   if [ "$webServerType" = "apache" ]; then
     # install apache pacakges
@@ -82,6 +84,7 @@ check_fileServerType_param $fileServerType
     # for nginx-only option
     sudo apt-get -y install php7.1-fpm
   fi
+  echo "Step 2"
 
   # Moodle requirements
   sudo apt-get install -y graphviz aspell php7.1-soap php7.1-json php7.1-redis php7.1-bcmath php7.1-gd php7.1-pgsql php7.1-mysql php7.1-xmlrpc php7.1-intl php7.1-xml php7.1-bz2
