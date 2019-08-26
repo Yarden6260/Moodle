@@ -74,6 +74,7 @@ check_fileServerType_param $fileServerType
   echo "Step 0"
   if [ "$webServerType" = "nginx" -o "$httpsTermination" = "VMSS" ]; then
     sudo apt-get -y install nginx
+    echo "Step 0.5"
   fi
   echo "Step 1"
 
